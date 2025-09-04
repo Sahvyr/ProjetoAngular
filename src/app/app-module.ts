@@ -5,10 +5,13 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Teste } from './teste/teste';
 import { Aula03 } from './aula03/aula03';
+import { Aula04 } from './aula04/aula04';
+import { ListaFuncionario } from './lista-funcionario/lista-funcionario';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [App, Teste, Aula03],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [App, Teste, Aula03, Aula04, ListaFuncionario],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
