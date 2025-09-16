@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class Funcionarios {
-  private apiUrl = 'https://node-vercel-app-rho.vercel.app/api/mural-avisos';
+  private apiUrl = 'https://node-vercel-app-rho.vercel.app/api/funcionarios';
 
   constructor(private http: HttpClient) {}
 
@@ -13,12 +13,7 @@ export class Funcionarios {
     return this.http.get(this.apiUrl);
   }
 
-  postUser() {
-    return this.http.post(this.apiUrl, {
-      turma: '20wps17',
-      message: 'teste 01',
-      link: '--',
-      deadline: '03/09/2025',
-    });
+  postFuncionarios(funcionarioForm: any) {
+    return this.http.post(this.apiUrl, funcionarioForm);
   }
 }

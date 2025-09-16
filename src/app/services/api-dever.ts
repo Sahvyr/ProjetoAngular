@@ -17,7 +17,7 @@ export class ApiDever {
     return this.http.get(`${this.apiurl}/mural-avisos`);
   }
 
-  postUser(funcionario: any) {
+  postFuncionarios(funcionario: any) {
     return this.http.post(`${this.apiurl}/funcionarios`, funcionario);
   }
 

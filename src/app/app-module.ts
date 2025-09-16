@@ -3,17 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { Teste } from './teste/teste';
-import { Aula03 } from './aula03/aula03';
-import { Aula04 } from './aula04/aula04';
 import { ListaFuncionario } from './lista-funcionario/lista-funcionario';
 import { HttpClientModule } from '@angular/common/http';
 import { DeverAulaApi } from './dever-aula-api/dever-aula-api';
-import { Formulario } from './formulario/formulario';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioFuncionario } from './formulario-funcionario/formulario-funcionario';
 
 @NgModule({
-  declarations: [App, Teste, Aula03, Aula04, ListaFuncionario, DeverAulaApi, Formulario],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [App, ListaFuncionario, DeverAulaApi, FormularioFuncionario],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

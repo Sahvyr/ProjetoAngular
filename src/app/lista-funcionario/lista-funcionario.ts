@@ -10,18 +10,15 @@ import { Funcionarios } from '../services/funcionarios';
 export class ListaFuncionario implements OnInit {
   constructor(private funcionarios: Funcionarios) {}
 
-  ngOnInit(): void {
-    this.getAvisos();
-    this.postAvisos();
+  ngOnInit() {
+    this.getFuncionarios();
   }
 
-  postAvisos() {
-    this.funcionarios.postUser().subscribe();
-  }
+  funcionariosLista: any[] = [];
 
-  getAvisos() {
-    this.funcionarios.getUsers().subscribe((funcionarios) => {
-      console.log(funcionarios);
+  getFuncionarios() {
+    this.funcionarios.getUsers().subscribe((data: any) => {
+      this.funcionariosLista = data;
     });
   }
 }

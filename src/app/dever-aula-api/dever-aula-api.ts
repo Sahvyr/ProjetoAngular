@@ -38,7 +38,7 @@ export class DeverAulaApi implements OnInit {
   }
 
   postAvisos() {
-    return this.apiDever.postUser(this.funcionario).subscribe((dados) => console.log(dados));
+    return this.apiDever.postFuncionarios(this.funcionario).subscribe((dados) => console.log(dados));
   }
 
   getAvisos() {
