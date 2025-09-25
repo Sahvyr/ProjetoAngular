@@ -9,10 +9,26 @@ import { DeverAulaApi } from './dever-aula-api/dever-aula-api';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioFuncionario } from './formulario-funcionario/formulario-funcionario';
+import { Admin } from './admin/admin';
+import { Login } from './login/login';
+import { Configuracoes } from './configuracoes/configuracoes';
+import { Profile } from './profile/profile';
+import { Detalhes } from './detalhes/detalhes';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
-  declarations: [App, ListaFuncionario, DeverAulaApi, FormularioFuncionario],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
+  declarations: [
+    App,
+    ListaFuncionario,
+    DeverAulaApi,
+    FormularioFuncionario,
+    Admin,
+    Login,
+    Configuracoes,
+    Profile,
+    Detalhes,
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, MatTableModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
