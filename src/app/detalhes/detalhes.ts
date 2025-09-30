@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Funcionarios } from '../services/funcionarios';
 
 @Component({
   selector: 'app-detalhes',
@@ -8,13 +9,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './detalhes.css',
 })
 export class Detalhes {
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private funcionariosService: Funcionarios) {}
 
   idUsuario: any = '';
+  usuario: any;
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.idUsuario = params.get('id');
+      this.getUserDetails(this.idUsuario);
+    });
+  }
+
+  getUserDetails(id: string) {
+    return this.funcionariosService.getUserById(id).subscribe((data: any) => {
+      this.usuario = data;
+      console.log(this.usuario);
     });
   }
 }

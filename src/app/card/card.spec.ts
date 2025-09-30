@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeverAulaApi } from './dever-aula-api';
+import { Card } from './card';
 
-describe('DeverAulaApi', () => {
-  let component: DeverAulaApi;
-  let fixture: ComponentFixture<DeverAulaApi>;
+describe('Card', () => {
+  let component: Card;
+  let fixture: ComponentFixture<Card>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DeverAulaApi]
+      declarations: [Card]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeverAulaApi);
+    fixture = TestBed.createComponent(Card);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
