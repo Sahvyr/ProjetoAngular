@@ -17,7 +17,7 @@ export class Funcionarios {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  postFuncionarios(funcionarioForm: any) {
-    return this.http.post(this.apiUrl, funcionarioForm);
+  postFuncionarios(formulario: any) {
+    return this.http.post(this.apiUrl, formulario);
   }
 }

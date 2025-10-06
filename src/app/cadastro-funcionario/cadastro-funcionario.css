@@ -1,0 +1,32 @@
+.containerFormulario {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 600px;
+  background-color: #f9f9f9; /* fundo claro */
+  border: 1px solid #ccc; /* borda suave */
+  border-radius: 10px; /* cantos arredondados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* sombra leve */
+  display: flex;
+  flex-direction: column;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* espaçamento entre campos */
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  align-self: flex-end;
+  padding: 10px 20px;
+}

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormularioFuncionario } from './formulario-funcionario/formulario-funcionario';
 import { ListaFuncionario } from './lista-funcionario/lista-funcionario';
 import { AuthGuard } from './guard/auth.guard';
 import { Login } from './login/login';
@@ -8,9 +7,11 @@ import { Admin } from './admin/admin';
 import { Configuracoes } from './configuracoes/configuracoes';
 import { Profile } from './profile/profile';
 import { Detalhes } from './detalhes/detalhes';
+import { AtualizarFuncionario } from './atualizar-funcionario/atualizar-funcionario';
+import { CadastroFuncionario } from './cadastro-funcionario/cadastro-funcionario';
 
 const routes: Routes = [
-  { path: 'cadastrar', component: FormularioFuncionario, canActivate: [AuthGuard] },
+  { path: 'cadastrar', component: CadastroFuncionario },
   { path: 'lista', component: ListaFuncionario },
   { path: '', redirectTo: '/lista', pathMatch: 'full' },
   { path: 'login', component: Login },
@@ -26,6 +27,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'atualizar/:id', component: AtualizarFuncionario },
 ];
 
 @NgModule({

@@ -7,7 +7,6 @@ import { ListaFuncionario } from './lista-funcionario/lista-funcionario';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormularioFuncionario } from './formulario-funcionario/formulario-funcionario';
 import { Admin } from './admin/admin';
 import { Login } from './login/login';
 import { Configuracoes } from './configuracoes/configuracoes';
@@ -17,18 +16,27 @@ import { MatTableModule } from '@angular/material/table';
 import { Card } from './card/card';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AtualizarFuncionario } from './atualizar-funcionario/atualizar-funcionario';
+import { CadastroFuncionario } from './cadastro-funcionario/cadastro-funcionario';
 
 @NgModule({
   declarations: [
     App,
     ListaFuncionario,
-    FormularioFuncionario,
     Admin,
     Login,
     Configuracoes,
     Profile,
     Detalhes,
     Card,
+    AtualizarFuncionario,
+    CadastroFuncionario,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +46,12 @@ import { MatButtonModule } from '@angular/material/button';
     MatTableModule,
     MatCardModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Funcionarios } from '../services/funcionarios';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 @Component({
-  selector: 'app-formulario-funcionario',
+  selector: 'app-cadastro-funcionario',
   standalone: false,
-  templateUrl: './formulario-funcionario.html',
-  styleUrl: './formulario-funcionario.css',
+  templateUrl: './cadastro-funcionario.html',
+  styleUrl: './cadastro-funcionario.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormularioFuncionario {
+export class CadastroFuncionario {
   constructor(private funcionarios: Funcionarios) {}
   funcionarioForm = new FormGroup({
     nome: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -27,7 +29,6 @@ export class FormularioFuncionario {
   });
 
   enviar() {
-    console.log(this.funcionarioForm.value);
     this.funcionarios.postFuncionarios(this.funcionarioForm.value).subscribe((data) => {
       console.log(data);
     });

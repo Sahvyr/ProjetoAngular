@@ -29,4 +29,9 @@ export class ListaFuncionario implements OnInit {
   detalhesFuncionarios(id: number) {
     this.router.navigate(['/detalhes', id]);
   }
+
+  adicionarFuncionario() {
+    this.router.navigate(['/cadastrar']);
+  }
+
 }
