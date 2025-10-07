@@ -13,7 +13,11 @@
     <p>
       {{ endereco }}
     </p>
-    <p>{{ salarioAtual | currency : 'BRL' }}</p>
+    <p [ngClass]="{ 'salario-alto': salarioAtual >= 3000 }">
+      {{ salarioAtual | currency : 'BRL' }}
+    </p>
+
+    <b *ngIf="optouVT">Este usuario é optante do VT</b>
   </mat-card-content>
   <mat-card-actions>
     <button matButton>LIKE</button>

@@ -6,7 +6,6 @@ import { App } from './app';
 import { ListaFuncionario } from './lista-funcionario/lista-funcionario';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ReactiveFormsModule } from '@angular/forms';
 import { Admin } from './admin/admin';
 import { Login } from './login/login';
 import { Configuracoes } from './configuracoes/configuracoes';
@@ -24,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AtualizarFuncionario } from './atualizar-funcionario/atualizar-funcionario';
 import { CadastroFuncionario } from './cadastro-funcionario/cadastro-funcionario';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,6 @@ import { CadastroFuncionario } from './cadastro-funcionario/cadastro-funcionario
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
     MatTableModule,
     MatCardModule,
     MatButtonModule,
@@ -52,6 +51,7 @@ import { CadastroFuncionario } from './cadastro-funcionario/cadastro-funcionario
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

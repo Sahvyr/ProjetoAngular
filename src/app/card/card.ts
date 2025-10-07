@@ -11,6 +11,7 @@ export class Card {
   @Input() id: string = '';
   @Input() nome: string = '';
   @Input() sobrenome: string = '';
-  @Input() salarioAtual: string = '';
+  @Input() salarioAtual: number = 0;
   @Input() endereco: string = '';
+  @Input() optouVT: boolean = false;
 }

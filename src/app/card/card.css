@@ -6,3 +6,8 @@
   background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+.salario-alto {
+  color: #2ecc71;
+  font-weight: bold;
+}
