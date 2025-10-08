@@ -17,6 +17,10 @@ export class Funcionarios {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
+  deleteUserById(id: string) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+
   postFuncionarios(formulario: any) {
     return this.http.post(this.apiUrl, formulario);
   }
