@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Funcionarios } from '../services/funcionarios';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 interface LoginForm {
   nome: FormControl<string>;
@@ -10,13 +11,13 @@ interface LoginForm {
   grauEscolaridade: FormControl<string>;
   endereco: FormControl<string>;
   foto: FormControl<string>;
-  salarioAtual: FormControl<string>;
+
   valorPassagem: FormControl<number>;
   optouVT: FormControl<boolean>;
   cargo: FormControl<string>;
   salario: FormControl<number>;
   dataInicio: FormControl<string>;
-  dataFim: FormControl<string>;
+  dataDemissao: FormControl<string | null>;
 }
 
 @Component({
@@ -27,7 +28,7 @@ interface LoginForm {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CadastroFuncionario {
-  constructor(private funcionarios: Funcionarios) {}
+  constructor(private funcionarios: Funcionarios, private router: Router) {}
 
   funcionarioForm = new FormGroup<LoginForm>({
     nome: new FormControl('', {
@@ -43,18 +44,18 @@ export class CadastroFuncionario {
     grauEscolaridade: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     endereco: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     foto: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    salarioAtual: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     valorPassagem: new FormControl(0, { nonNullable: true, validators: [Validators.required] }),
     optouVT: new FormControl(false, { nonNullable: true, validators: [Validators.required] }),
     cargo: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     salario: new FormControl(0, { nonNullable: true, validators: [Validators.required] }),
     dataInicio: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    dataFim: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    dataDemissao: new FormControl(null),
   });
 
   enviar() {
     this.funcionarios.postFuncionarios(this.funcionarioForm.value).subscribe((data) => {
       console.log(data);
+      this.router.navigate(['/lista']);
     });
   }
 }

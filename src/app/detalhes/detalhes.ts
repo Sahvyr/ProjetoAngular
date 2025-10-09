@@ -28,10 +28,4 @@ export class Detalhes {
     });
   }
 
-  deletarUsuario(id: string) {
-    this.funcionariosService.deleteUserById(id).subscribe(() => {
-      alert('Usuário deletado com sucesso!');
-      this.usuario = null;
-    });
-  }
 }

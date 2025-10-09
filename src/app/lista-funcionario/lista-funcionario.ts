@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './lista-funcionario.css',
 })
 export class ListaFuncionario implements OnInit {
-  displayedColumns: string[] = ['nome', 'sobrenome', 'dtNascimento', 'salario','detalhes'];
+  displayedColumns: string[] = ['nome', 'sobrenome', 'dtNascimento', 'salario', 'detalhes'];
 
   funcionariosLista = [];
 
@@ -30,8 +30,7 @@ export class ListaFuncionario implements OnInit {
     this.router.navigate(['/detalhes', id]);
   }
 
-  adicionarFuncionario() {
+  cadastrarFuncionario() {
     this.router.navigate(['/cadastrar']);
   }
-
 }
