@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Funcionarios } from '../services/funcionarios';
 
 @Component({
@@ -10,7 +10,7 @@ import { Funcionarios } from '../services/funcionarios';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
-  constructor(private route: ActivatedRoute, private funcionariosService: Funcionarios) {}
+  constructor(private router: Router, private funcionariosService: Funcionarios) {}
 
   @Input() id: string = '';
   @Input() nome: string = '';
@@ -23,5 +23,9 @@ export class Card {
     this.funcionariosService.deleteUserById(id).subscribe((data) => {
       console.log(data);
     });
+  }
+
+  editarUsuario(id: string) {
+    this.router.navigate(['/atualizar', id]);
   }
 }
