@@ -55,6 +55,7 @@ export class CadastroFuncionario {
   enviar() {
     this.funcionarios.postFuncionarios(this.funcionarioForm.value).subscribe((data) => {
       console.log(data);
+
       this.router.navigate(['/lista']);
     });
   }

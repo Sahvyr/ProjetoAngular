@@ -24,4 +24,8 @@ export class Funcionarios {
   postFuncionarios(formulario: any) {
     return this.http.post(this.apiUrl, formulario);
   }
+
+  atualizarUserById(id: string, formulario: any) {
+    return this.http.put(`${this.apiUrl}/${id}`, formulario);
+  }
 }

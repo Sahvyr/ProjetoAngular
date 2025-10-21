@@ -22,6 +22,8 @@ export class Card {
   deletarUsuario(id: string) {
     this.funcionariosService.deleteUserById(id).subscribe((data) => {
       console.log(data);
+      console.log('Usuário deletado com sucesso');
+      this.router.navigate(['/lista']);
     });
   }
 

@@ -24,6 +24,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AtualizarFuncionario } from './atualizar-funcionario/atualizar-funcionario';
 import { CadastroFuncionario } from './cadastro-funcionario/cadastro-funcionario';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatRadioModule,
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Funcionarios } from '../services/funcionarios';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 interface LoginForm {
   nome: FormControl<string>;
@@ -24,10 +25,14 @@ interface LoginForm {
   selector: 'app-atualizar-funcionario',
   standalone: false,
   templateUrl: './atualizar-funcionario.html',
-  styleUrl: './atualizar-funcionario.css',
+  styleUrls: ['./atualizar-funcionario.css'],
 })
 export class AtualizarFuncionario {
-  constructor(private route: ActivatedRoute, private funcionariosService: Funcionarios) {}
+  constructor(
+    private route: ActivatedRoute,
+    private funcionariosService: Funcionarios,
+    private router: Router
+  ) {}
 
   idUsuario: any = '';
   usuario: any;
@@ -51,7 +56,7 @@ export class AtualizarFuncionario {
     cargo: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     salario: new FormControl(0, { nonNullable: true, validators: [Validators.required] }),
     dataInicio: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    dataDemissao: new FormControl(null),
+    dataDemissao: new FormControl<string | null>(null),
   });
 
   ngOnInit() {
@@ -64,12 +69,21 @@ export class AtualizarFuncionario {
   getUserDetails(id: string) {
     return this.funcionariosService.getUserById(id).subscribe((data: any) => {
       this.usuario = data;
-      this.funcionarioForm.patchValue(data);
-      console.log(this.usuario);
+      const parsedData = {
+        ...data,
+        optouVT: data.optouVT !== null ? Boolean(data.optouVT) : false,
+      };
+
+      this.funcionarioForm.patchValue(parsedData);
     });
   }
 
-  atualizar(): any {
-    console.log('atualizado');
+  atualizar() {
+    this.funcionariosService
+      .atualizarUserById(this.idUsuario, this.funcionarioForm.value)
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+    this.router.navigate(['/lista']);
   }
 }
