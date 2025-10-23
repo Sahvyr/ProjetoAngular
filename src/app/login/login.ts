@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
+
 export class Login {
   constructor(private auth: AuthService, private router: Router) {}
   funcionarioForm = new FormGroup({
