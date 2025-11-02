@@ -20,12 +20,12 @@ export class Card {
   @Input() optouVT: boolean = false;
 
   deletarUsuario(id: string) {
-    this.funcionariosService.deleteUserById(id).subscribe((data) => {
-      console.log(data);
-      console.log('Usuário deletado com sucesso');
-      this.router.navigate(['/lista']);
-    });
-  }
+  this.funcionariosService.deleteUserById(id).subscribe(() => {
+    alert('Usuário deletado com sucesso!'); 
+    location.reload(); 
+  });
+}
+
 
   editarUsuario(id: string) {
     this.router.navigate(['/atualizar', id]);

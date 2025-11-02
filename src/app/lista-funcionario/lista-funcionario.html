@@ -1,15 +1,27 @@
-<div class="cards-container">
-  <app-card
-    *ngFor="let funcionario of funcionariosLista"
-    [id]="funcionario._id"
-    [nome]="funcionario.nome"
-    [sobrenome]="funcionario.sobrenome"
-    [salario]="funcionario.salarioAtual"
-    [endereco]="funcionario.endereco"
-    [optouVT]="funcionario.optouVT"
-  ></app-card>
-</div>
+<div class="lista-funcionarios-container">
+  <h2 class="titulo-lista">Lista de Funcionários</h2>
 
-<button matButton="filled" color="primary" (click)="cadastrarFuncionario()">
-  Cadastrar Funcionário
-</button>
+  <div class="caixa-principal">
+    <div class="cards-container">
+      <app-card
+        *ngFor="let funcionario of funcionariosLista"
+        [id]="funcionario._id"
+        [nome]="funcionario.nome"
+        [sobrenome]="funcionario.sobrenome"
+        [salario]="funcionario.salarioAtual"
+        [endereco]="funcionario.endereco"
+        [optouVT]="funcionario.optouVT"
+      ></app-card>
+    </div>
+
+    <div class="botao-container">
+      <button
+        matButton="filled"
+        color="primary"
+        (click)="cadastrarFuncionario()"
+      >
+        Cadastrar Funcionário
+      </button>
+    </div>
+  </div>
+</div>
